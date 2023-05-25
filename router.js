@@ -43,6 +43,7 @@ function router(req, res) {
       }
 
       res.writeHead(302, { Location: `/` });
+      break;
 
     default:
       break;
