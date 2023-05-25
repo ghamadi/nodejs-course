@@ -3,6 +3,7 @@ const os = require('os');
 
 const { buildHtmlDoc, buildUsersList, buildCreateUserForm } = require('./utils/html-builders');
 const USERS = ['User 1', 'User 2', 'User Da Da'];
+const USERS_FILE_PATH = './output/users.txt';
 
 /**
  *
@@ -28,8 +29,8 @@ function router(req, res) {
       if (method === 'POST') {
         const buffer = [];
 
-        if (!fs.existsSync('users.txt')) {
-          fs.writeFileSync('users.txt', '');
+        if (!fs.existsSync(USERS_FILE_PATH)) {
+          fs.writeFileSync(USERS_FILE_PATH, '');
         }
 
         req.on('data', chunk => {
@@ -38,7 +39,7 @@ function router(req, res) {
 
         req.on('end', () => {
           const user = Buffer.concat(buffer).toString().replace(/user=/, '');
-          fs.appendFile('users.txt', `${user}${os.EOL}`, () => {});
+          fs.appendFile(USERS_FILE_PATH, `${user}${os.EOL}`, () => {});
         });
       }
 
