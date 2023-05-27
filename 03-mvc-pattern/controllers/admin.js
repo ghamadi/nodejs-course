@@ -17,8 +17,7 @@ Router.get('/admin/add-product', (req, res, next) => {
 
 Router.post('/admin/add-product', (req, res, next) => {
   console.log('Adding Product', req.body);
-  const product = new Product(req.body);
-  product.save();
+  new Product(req.body).save();
   res.redirect('/');
 });
 
