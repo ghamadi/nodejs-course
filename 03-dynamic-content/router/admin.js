@@ -1,4 +1,5 @@
 import express from 'express';
+import { books } from './shop.js';
 
 const Router = express.Router();
 
@@ -13,6 +14,7 @@ Router.get('/admin/add-product', (req, res, next) => {
 
 Router.post('/admin/add-product', (req, res, next) => {
   console.log('Adding Product', req.body);
+  books.push(req.body);
   res.redirect('/');
 });
 

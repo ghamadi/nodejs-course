@@ -7,6 +7,7 @@ head
   link(rel='stylesheet' href='/css/main.css')
   link(rel='stylesheet' href='/css/forms.css')
   link(rel='stylesheet' href='/css/product.css')
+
 header.main-header
   nav.main-header__nav
     ul.main-header__item-list
@@ -14,9 +15,12 @@ header.main-header
         a(href='/') Shop
       li.main-header__item
         a.active(href='/admin/add-product') Add Product
+
 main
   form.product-form(action='/admin/add-product' method='POST')
     .form-control
       label(for='title') Title
       input#title(type='text' name='title')
+      label(for='price') Price
+      input#price(type='text' name='price')
     button.btn(type='submit') Add Product
