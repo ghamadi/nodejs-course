@@ -9,7 +9,7 @@ Router.get('/admin/add-product', (req, res, next) => {
   // We could also rely on app.set('views', 'myCustomViewsPath') to
   // set the path to the view files globally and avoid getting it for every response
 
-  res.render('add-product');
+  res.render('add-product', { path: req.path, pageTitle: 'Add Product' });
 });
 
 Router.post('/admin/add-product', (req, res, next) => {

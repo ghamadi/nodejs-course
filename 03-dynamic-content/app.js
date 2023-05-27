@@ -18,7 +18,7 @@ app.use(ShopRouter);
 // Establish unknown route handler
 app.use((req, res, next) => {
   console.log('NOT FOUND', req.path);
-  res.status(404).sendFile(path.join(viewsPath, '404.html'));
+  res.status(404).render('404', { pageTitle: 'Page Not Found' });
 });
 
 // Run the server

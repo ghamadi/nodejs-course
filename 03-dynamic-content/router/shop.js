@@ -10,7 +10,7 @@ Router.get('/', (req, res, next) => {
   // We could also rely on app.set('views', 'myCustomViewsPath') to
   // set the path to the view files globally and avoid getting it for every response
 
-  res.render('shop', { title: 'Shop', books });
+  res.render('shop', { title: 'Shop', books, path: req.path });
 });
 
 export default Router;
