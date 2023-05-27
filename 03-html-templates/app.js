@@ -22,7 +22,7 @@ app.use(ShopRouter);
 // Establish unknown route handler
 app.use((req, res, next) => {
   console.log('NOT FOUND', req.path);
-  res.status(404).render('layouts/main-layout', { page: '404' });
+  res.status(404).render('layouts/main-layout', { path: req.path, page: '404' });
 });
 
 // Run the server
