@@ -10,7 +10,7 @@ Router.get('/admin/add-product', (req, res, next) => {
 });
 
 Router.post('/admin/add-product', (req, res, next) => {
-  console.log(req.body);
+  console.log('Adding Product', req.body);
   res.redirect('/');
 });
 
