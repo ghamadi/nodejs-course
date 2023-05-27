@@ -2,8 +2,9 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import path from 'path';
 import { rootPath, viewsPath } from './paths.js';
-import AdminRouter from './router/admin.js';
-import ShopRouter from './router/shop.js';
+import AdminRouter from './controllers/admin.js';
+import ShopRouter from './controllers/shop.js';
+import ErrorRouter from './controllers/error.js';
 
 const app = express();
 app.locals = {
@@ -18,12 +19,7 @@ app.use(express.static(path.join(rootPath, 'public')));
 // Establish route handlers
 app.use(AdminRouter);
 app.use(ShopRouter);
-
-// Establish unknown route handler
-app.use((req, res, next) => {
-  console.log('NOT FOUND', req.path);
-  res.status(404).render('layouts/main-layout', { path: req.path, page: '404' });
-});
+app.use(ErrorRouter);
 
 // Run the server
 app.listen(3000);
