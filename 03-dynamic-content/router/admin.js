@@ -5,7 +5,6 @@ import { viewsPath } from '../paths.js';
 const Router = express.Router();
 
 Router.get('/admin/add-product', (req, res, next) => {
-  Router.get;
   res.sendFile(path.join(viewsPath, 'add-product.html'));
 });
 
