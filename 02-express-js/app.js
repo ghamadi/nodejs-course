@@ -1,26 +1,25 @@
 import express from 'express';
+import bodyParser from 'body-parser';
+import path from 'path';
+import { rootPath, viewsPath } from './paths.js';
+import AdminRouter from './router/admin.js';
+import ShopRouter from './router/shop.js';
 
 const app = express();
 
-// app.use((req, res, next) => {
-//   console.log('Global Middleware 1');
-//   next();
-// })
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(path.join(rootPath, 'public')));
 
-// app.use((req, res, next) => {
-//   console.log('Global Middleware 2');
-//   res.send('<h1>Hello World!</h1>');
-// })
+// Establish route handlers
+app.use(AdminRouter);
+app.use(ShopRouter);
 
-app.use('/users', (req, res, next) => {
-  console.log('Users Path Middleware');
-  res.send('<h1>Users Page</h1>');
+// Establish unknown route handler
+app.use((req, res, next) => {
+  console.log('NOT FOUND', req.path);
+  res.status(404).sendFile(path.join(viewsPath, '404.html'));
 });
 
-app.use('/', (req, res, next) => {
-  console.log('Root Path Middleware');
-  res.send('<h1>Home Page</h1>');
-});
-
+// Run the server
 app.listen(3000);
 console.log('Server is listenering on port 3000');
