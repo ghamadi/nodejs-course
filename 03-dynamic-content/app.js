@@ -6,6 +6,7 @@ import AdminRouter from './router/admin.js';
 import ShopRouter from './router/shop.js';
 
 const app = express();
+app.set('view engine', 'pug');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(rootPath, 'public')));
