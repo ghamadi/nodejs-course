@@ -1,5 +1,5 @@
 import express from 'express';
-import { books } from './shop.js';
+import { prods } from './shop.js';
 
 const Router = express.Router();
 
@@ -9,12 +9,12 @@ Router.get('/admin/add-product', (req, res, next) => {
   // We could also rely on app.set('views', 'myCustomViewsPath') to
   // set the path to the view files globally and avoid getting it for every response
 
-  res.render('add-product', { path: req.path, pageTitle: 'Add Product' });
+  res.render('layouts/main-layout', { path: req.path, page: 'add-product' });
 });
 
 Router.post('/admin/add-product', (req, res, next) => {
   console.log('Adding Product', req.body);
-  books.push(req.body);
+  prods.push(req.body);
   res.redirect('/');
 });
 

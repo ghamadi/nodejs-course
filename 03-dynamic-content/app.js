@@ -6,7 +6,11 @@ import AdminRouter from './router/admin.js';
 import ShopRouter from './router/shop.js';
 
 const app = express();
-app.set('view engine', 'pug');
+app.locals = {
+  rootPath,
+  viewsPath
+};
+app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(rootPath, 'public')));
@@ -18,7 +22,7 @@ app.use(ShopRouter);
 // Establish unknown route handler
 app.use((req, res, next) => {
   console.log('NOT FOUND', req.path);
-  res.status(404).render('404', { pageTitle: 'Page Not Found' });
+  res.status(404).render('layouts/main-layout', { page: '404' });
 });
 
 // Run the server
