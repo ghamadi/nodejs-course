@@ -1,6 +1,10 @@
-<main>
-  <h1>Details Page!</h1>
-  <p>
-    <%= JSON.stringify(product) %>
-  </p>
+<main class="centered">
+  <h1><%= product.title  %></h1>
+  <hr />
+  <div>
+    <img src="<%= product.imageUrl %>" alt="<%= product.title %> image">
+  </div>
+  <h2>$<%= (+product.price).toFixed(2) %></h2>
+  <p><%= product.description %></p>
+  <%- include(viewsPath + '/shared/add-to-cart-form.ejs', {product}) %>
 </main>
