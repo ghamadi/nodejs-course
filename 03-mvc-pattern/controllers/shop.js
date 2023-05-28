@@ -22,6 +22,13 @@ ShopRouter.get('/checkout', (req, res, next) => {
   });
 });
 
+ShopRouter.get('/orders', (req, res, next) => {
+  res.render('main-layout', {
+    page: 'shop/orders-page',
+    path: req.baseUrl + req.path
+  });
+});
+
 ShopRouter.get('/products', async (req, res, next) => {
   try {
     const products = await Product.fetchAllProducts();
