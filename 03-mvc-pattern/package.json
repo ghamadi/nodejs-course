@@ -5,7 +5,7 @@
   "type": "module",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "nodemon --delay 500ms --ignore data/ app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

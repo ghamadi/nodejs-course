@@ -1,0 +1,7 @@
+{
+  "products": [
+    { "title": "www", "price": "222" },
+    { "title": "yyy", "price": "111" },
+    { "title": "aa", "price": "33" }
+  ]
+}
