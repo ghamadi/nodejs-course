@@ -8,7 +8,6 @@ ShopRouter.get('/', (req, res, next) => {
 });
 
 ShopRouter.get('/cart', (req, res, next) => {
-  console.log(req.baseUrl + req.path);
   res.render('main-layout', {
     page: 'shop/cart-page',
     path: req.baseUrl + req.path
