@@ -1,25 +1,20 @@
 import express from 'express';
 import Product from '../models/product.js';
 
-const Router = express.Router();
+const ShopRouter = express.Router();
 
-Router.get('/', (req, res, next) => {
-  // No need to define the full path to the `view` file using path.join because
-  // by default nodejs will look in the `views/` directory
-  // We could also rely on app.set('views', 'myCustomViewsPath') to
-  // set the path to the view files globally and avoid getting it for every response
-
-  Product.fetchAllProducts()
-    .then(products => {
-      res.render('layouts/main-layout', {
-        page: 'shop',
-        path: req.path,
-        prods: products
-      });
-    })
-    .catch(err => {
-      console.log('CAUGHT ERROR');
+ShopRouter.get('/', async (req, res, next) => {
+  try {
+    const products = await Product.fetchAllProducts();
+    res.render('main-layout', {
+      page: 'shop/products-page',
+      path: req.path,
+      prods: products
     });
+  } catch (error) {
+    console.error('[Product] fetching products failed', err);
+    res.status(500).send('<h1> Error fetching the data </h1>');
+  }
 });
 
-export default Router;
+export default ShopRouter;

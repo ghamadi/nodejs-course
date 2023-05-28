@@ -1,11 +1,11 @@
 import express from 'express';
 
-const Router = express.Router();
+const ErrorRouter = express.Router();
 
 // Establish unknown route handler
-Router.use((req, res, next) => {
-  console.log('NOT FOUND', req.path);
-  res.status(404).render('layouts/main-layout', { path: req.path, page: '404' });
+ErrorRouter.use((req, res, next) => {
+  console.error(`[Not Found] ${req.path}`);
+  res.status(404).render('main-layout', { path: req.path, page: 'error/404-page' });
 });
 
-export default Router;
+export default ErrorRouter;

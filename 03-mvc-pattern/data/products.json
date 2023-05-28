@@ -1,7 +1,1 @@
-{
-  "products": [
-    { "title": "www", "price": "222" },
-    { "title": "yyy", "price": "111" },
-    { "title": "aa", "price": "33" }
-  ]
-}
+{"products":[{"title":"www","price":"222"},{"title":"yyy","price":"111"},{"title":"aa","price":"33"},{"title":"uuu","price":"5767"}]}
