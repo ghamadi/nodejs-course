@@ -5,6 +5,7 @@ import { rootPath, viewsPath } from './paths.js';
 import AdminRouter from './controllers/admin.js';
 import ShopRouter from './controllers/shop.js';
 import ErrorRouter from './controllers/error.js';
+import AppRouter from './controllers/index.js';
 
 const app = express();
 app.locals = {
@@ -17,6 +18,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(rootPath, 'public')));
 
 // Establish route handlers
+app.use(AppRouter);
 app.use(AdminRouter);
 app.use(ShopRouter);
 app.use(ErrorRouter);

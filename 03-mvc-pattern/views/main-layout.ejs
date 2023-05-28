@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/css/main.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="/css/main.css" />
     <%- include(viewsPath + '/pages/' + page + '/meta.ejs') %>
   </head>
 
@@ -18,7 +17,18 @@
           </li>
 
           <li class="main-header__item">
+            <a href="/shop/products" class="<%= path === '/shop/products' ? 'active' : '' %>">Products</a>
+          </li>
+
+          <li class="main-header__item">
+            <a href="/shop/cart" class="<%= path === '/shop/cart' ? 'active' : '' %>">Cart</a>
+          </li>
+
+          <li class="main-header__item">
             <a href="/admin/add-product" class="<%= path === '/admin/add-product' ? 'active' : '' %>">Add Product</a>
+          </li>
+          <li class="main-header__item">
+            <a href="/admin/products" class="<%= path === '/admin/products' ? 'active' : '' %>">Admin Products</a>
           </li>
         </ul>
       </nav>
@@ -26,5 +36,4 @@
 
     <%- include(viewsPath + '/pages/' + page + '/outlet.ejs') %>
   </body>
-
 </html>
