@@ -1,1 +1,10 @@
-{"products":[{"title":"www","price":"222"},{"title":"yyy","price":"111"},{"title":"aa","price":"33"},{"title":"uuu","price":"5767"},{"title":"www","price":"33"}]}
+{
+  "products": [
+    {
+      "title": "To Kill a Mockingbird",
+      "price": "10",
+      "imageUrl": "https://picsum.photos/seed/to-kill-a-mockingbird/300/300",
+      "description": "A great story"
+    }
+  ]
+}

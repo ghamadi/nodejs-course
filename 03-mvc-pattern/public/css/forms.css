@@ -9,12 +9,16 @@
     margin-bottom: 0.25rem;
 }
 
-.form-control input {
+.form-control .form-input {
     border: 1px solid #a1a1a1;
     font: inherit;
     border-radius: 2px;
 }
 
-.form-control input:focus {
+.form-control .form-input:hover {
+  border-color: #00695c;
+}
+
+.form-control .form-input:focus {
     outline-color: #00695c;
 }
