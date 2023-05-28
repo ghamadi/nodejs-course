@@ -8,16 +8,17 @@ ShopRouter.get('/', (req, res, next) => {
 });
 
 ShopRouter.get('/cart', (req, res, next) => {
+  console.log(req.baseUrl + req.path);
   res.render('main-layout', {
     page: 'shop/cart-page',
-    path: req.path
+    path: req.baseUrl + req.path
   });
 });
 
 ShopRouter.get('/checkout', (req, res, next) => {
   res.render('main-layout', {
     page: 'shop/checkout-page',
-    path: req.path
+    path: req.baseUrl + req.path
   });
 });
 
@@ -26,7 +27,7 @@ ShopRouter.get('/products', async (req, res, next) => {
     const products = await Product.fetchAllProducts();
     res.render('main-layout', {
       page: 'shop/products-page',
-      path: req.path,
+      path: req.baseUrl + req.path,
       prods: products
     });
   } catch (error) {

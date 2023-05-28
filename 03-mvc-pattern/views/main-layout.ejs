@@ -1,11 +1,24 @@
+<%
+  const NAV_LINKS = [
+    {path: '/shop', label: 'Shop'},
+    {path: '/shop/products', label: 'Products'},
+    {path: '/shop/cart', label: 'Cart'},
+    {path: '/admin/add-product', label: 'Add Product'},
+    {path: '/admin/products', label: 'Admin Products'},
+  ]
+%>
+
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="/css/main.css" />
-    <% try { %> <%- include(viewsPath + '/pages/' + page + '/meta.ejs') %> <% } catch (e) { %>
+    <% try { %>
+    <%- include(viewsPath + '/pages/' + page + '/meta.ejs') %>
+    <% } catch (e) { %>
     <!-- Optional meta.ejs file not found. Ignoring... -->
     <% } %>
   </head>
@@ -14,28 +27,18 @@
     <header class="main-header">
       <nav class="main-header__nav">
         <ul class="main-header__item-list">
+          <% for (const link of NAV_LINKS) { %>
           <li class="main-header__item">
-            <a href="/shop" class="<%= path === '/shop' ? 'active' : '' %>">Shop</a>
+            <a href="<%= link.path %>" class="<%= path === link.path ? 'active' : '' %>">
+              <%= link.label %>
+            </a>
           </li>
-
-          <li class="main-header__item">
-            <a href="/shop/products" class="<%= path === '/shop/products' ? 'active' : '' %>">Products</a>
-          </li>
-
-          <li class="main-header__item">
-            <a href="/shop/cart" class="<%= path === '/shop/cart' ? 'active' : '' %>">Cart</a>
-          </li>
-
-          <li class="main-header__item">
-            <a href="/admin/add-product" class="<%= path === '/admin/add-product' ? 'active' : '' %>">Add Product</a>
-          </li>
-          <li class="main-header__item">
-            <a href="/admin/products" class="<%= path === '/admin/products' ? 'active' : '' %>">Admin Products</a>
-          </li>
+          <% } %>
         </ul>
       </nav>
     </header>
 
     <%- include(viewsPath + '/pages/' + page + '/outlet.ejs') %>
   </body>
+
 </html>

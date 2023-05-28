@@ -6,9 +6,10 @@ const AdminRouter = express.Router();
 AdminRouter.get('/products', async (req, res, next) => {
   try {
     const products = await Product.fetchAllProducts();
+    console.log(req.baseUrl, req.url);
     res.render('main-layout', {
       page: 'admin/products-page',
-      path: req.path,
+      path: req.baseUrl + req.path,
       prods: products
     });
   } catch (error) {
@@ -19,7 +20,7 @@ AdminRouter.get('/products', async (req, res, next) => {
 
 AdminRouter.get('/add-product', (req, res, next) => {
   res.render('main-layout', {
-    path: req.path,
+    path: req.baseUrl + req.path,
     page: 'admin/add-product-page'
   });
 });
