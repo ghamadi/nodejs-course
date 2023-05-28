@@ -15,7 +15,10 @@ ShopRouter.get('/cart', (req, res, next) => {
 });
 
 ShopRouter.get('/checkout', (req, res, next) => {
-  res.redirect('/products');
+  res.render('main-layout', {
+    page: 'shop/checkout-page',
+    path: req.path
+  });
 });
 
 ShopRouter.get('/products', async (req, res, next) => {
