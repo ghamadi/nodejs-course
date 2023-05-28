@@ -5,9 +5,11 @@ import { rootPath } from '../paths.js';
 const productsFilePath = path.join(rootPath, 'data', 'products.json');
 
 export default class Product {
-  constructor({ title, price }) {
+  constructor({ title, price, imageUrl, description }) {
     this.title = title;
     this.price = price;
+    this.imageUrl = imageUrl;
+    this.description = description;
   }
 
   async save() {
