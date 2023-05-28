@@ -3,11 +3,22 @@ import Product from '../models/product.js';
 
 const ShopRouter = express.Router();
 
-ShopRouter.get('/shop', (req, res, next) => {
+ShopRouter.get('/', (req, res, next) => {
   res.redirect('/shop/products');
 });
 
-ShopRouter.get('/shop/products', async (req, res, next) => {
+ShopRouter.get('/cart', (req, res, next) => {
+  res.render('main-layout', {
+    page: 'shop/cart-page',
+    path: req.path
+  });
+});
+
+ShopRouter.get('/checkout', (req, res, next) => {
+  res.redirect('/products');
+});
+
+ShopRouter.get('/products', async (req, res, next) => {
   try {
     const products = await Product.fetchAllProducts();
     res.render('main-layout', {

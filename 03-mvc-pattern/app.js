@@ -19,8 +19,8 @@ app.use(express.static(path.join(rootPath, 'public')));
 
 // Establish route handlers
 app.use(AppRouter);
-app.use(AdminRouter);
-app.use(ShopRouter);
+app.use('/admin', AdminRouter);
+app.use('/shop', ShopRouter);
 app.use(ErrorRouter);
 
 // Run the server
