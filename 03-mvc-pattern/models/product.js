@@ -14,6 +14,7 @@ export default class Product {
 
   async save() {
     const currentProducts = await Product.fetchAllProducts();
+    this.id = `${currentProducts.length + 1}`;
     const newData = {
       products: [...currentProducts, this]
     };

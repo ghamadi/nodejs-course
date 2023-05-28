@@ -14,7 +14,7 @@
         <p class="product__description"><%= product.description%></p>
       </div>
       <div class="card__actions">
-        <button class="btn edit-btn">Edit</button>
+        <a class="btn" href="/shop/products/<%= product.id %>">Details</a>
         <button class="btn delete-btn">Delete</button>
       </div>
     </article>
@@ -26,12 +26,7 @@
 </main>
 
 <script>
-  const editButton = document.querySelector('.products-list .edit-btn');
   const deleteButton = document.querySelector('.products-list .delete-btn');
-
-  editButton.addEventListener('click', () => {
-    console.log('Clicked Edit');
-  });
 
   deleteButton.addEventListener('click', () => {
     console.log('Clicked Delete');

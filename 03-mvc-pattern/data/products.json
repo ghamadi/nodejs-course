@@ -2,9 +2,10 @@
   "products": [
     {
       "title": "To Kill a Mockingbird",
-      "price": "10",
+      "price": "14",
       "imageUrl": "https://picsum.photos/seed/to-kill-a-mockingbird/300/300",
-      "description": "A great story"
+      "description": "Excellent classic",
+      "id": "1"
     }
   ]
 }
